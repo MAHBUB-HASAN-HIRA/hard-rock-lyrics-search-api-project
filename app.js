@@ -46,14 +46,15 @@ const show_single_result = get_data =>{
         show_single_result_div.innerHTML = set_result;
     };
 
-    function get_lyrics(artist, title){
-        fetch(`https://api.lyrics.ovh/v1/${artist}/${title}?lyrics=`)
-        .then(res => res.json())
-        .then(lyrics =>{
-            hide_or_show_div('front_div','show_lyrics_div');
-            document.getElementById('lyrics_show').textContent = lyrics.lyrics || `OPPS!! There is no lyrics in this song`;
-        });           
-    }
+//get lyrics with get_lyrics_btn
+function get_lyrics(artist, title){
+    fetch(`https://api.lyrics.ovh/v1/${artist}/${title}?lyrics=`)
+    .then(res => res.json())
+    .then(lyrics =>{
+        hide_or_show_div('front_div','show_lyrics_div');
+        document.getElementById('lyrics_show').textContent = lyrics.lyrics || `OPPS!! There is no lyrics in this song`;
+    });           
+}
 //hide or show a div
 const hide_or_show_div = (id1, id2) => {
     document.getElementById(id1).style.display = 'none';
